@@ -16,6 +16,10 @@ def index(request):
     return render(request, "index.html", {"user_info": user_info})
 
 
+def custom_404_view(request, exception=None):
+    return render(request, "404.html", status=404)
+
+
 class EducationListView(ListView):
     model = Education
     template_name = "education.html"

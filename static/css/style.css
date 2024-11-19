@@ -488,3 +488,16 @@ body {
     display: block;
     cursor: pointer;
 }
+
+.error404 {
+    color:var(--main-color);
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.go-home {
+    color: var(--main-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    text-decoration: underline;
+}

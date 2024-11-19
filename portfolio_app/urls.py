@@ -1,7 +1,9 @@
 from django.urls import path
+from django.conf.urls import handler404
 
 from portfolio_app.views import (
     index,
+    custom_404_view,
     EducationListView,
     ExperienceListView,
     SkillsListView,
@@ -17,5 +19,7 @@ urlpatterns = [
     path("projects/", ProjectsListView.as_view(), name="projects"),
     path("languages/", LanguagesListView.as_view(), name="languages"),
 ]
+
+handler404 = custom_404_view
 
 app_name = "portfolio"
