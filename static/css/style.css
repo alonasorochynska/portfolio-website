@@ -202,7 +202,7 @@ body {
 
 /* Skills */
 #container1 {
-    min-width: 400px;
+    min-width: 300px;
     width: 1000px;
     height: 70vh;
     margin: 0 auto;
@@ -275,6 +275,7 @@ body {
 
 .main-container {
     opacity: 1;
+    min-width: 300px;
     border: 2px solid #161515;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
@@ -291,6 +292,7 @@ body {
 
 .container-around {
     opacity: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -329,12 +331,12 @@ body {
 }
 
 .main-page-blocks {
-    min-width: 400px;
+    min-width: 300px;
     min-height: 100px;
 }
 
 .big {
-    min-width: 400px;
+    min-width: 300px;
     min-height: 100px;
 }
 
