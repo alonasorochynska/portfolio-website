@@ -100,7 +100,12 @@ body {
 
 }
 
-
+@media (max-width: 600px) {
+    .img {
+        width: 100px;
+        height: 100px;
+    }
+}
 @media (max-width: 900px) {
     #js-menu {
         display: flex;
