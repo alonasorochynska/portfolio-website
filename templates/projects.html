@@ -20,7 +20,7 @@
             <div class="h3-name rainbow-text">{{ project.type }}</div>
           </div>
           <div class="bottom-space">
-            <span class="h4-name">{{ project.date }}</span>
+            <span class="h4-name">{{ project.date|date:"m/Y" }}</span>
           </div>
           <div class="education-description h3-name bottom-space">{{ project.description|safe }}</div>
 

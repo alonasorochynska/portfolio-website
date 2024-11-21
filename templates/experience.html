@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tz %}
 
 {% block title %}Experience{% endblock %}
 
@@ -21,7 +22,7 @@
                         <div class="bottom-space">
 
                         <span class="h4-name">{{ experience.start_date|date:"m/Y" }} - </span>
-                        <span class="h4-name">{{ experience.end_date|date:"m/Y" }}, </span>
+                        <span class="h4-name">{{ experience.end_date|default:current_date|date:"m/Y" }}, </span>
                         <span class="h4-name left-space">{{ experience.location }}</span>
                         </div>
 
