@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         color: "#FDEAEAFF",
                         textOutline: "none",
                         fontWeight: "normal",
-                        fontSize: "14px"
+                        fontSize: "12px"
                     }
                 }
             }
