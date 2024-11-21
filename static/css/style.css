@@ -23,8 +23,8 @@
     --bg-color: radial-gradient(circle at 70% 50%, rgba(236, 5, 136, 0.85) 0%, rgb(179, 3, 245) 100%);
     --text-color: black;
     --main-color: #faedf4;
-    --secondary-color: #e9c5e6;
-    --shadow-light: rgba(233, 197, 230, 1);
+    --secondary-color: #fde8fb;
+    --shadow-light: rgb(253, 220, 250);
     --shadow-dark: rgb(12, 12, 12, 1);
 }
 
@@ -84,7 +84,7 @@ body {
     color: var(--main-color);
     font-weight: bold;
     text-shadow:
-            2px 2px 8px rgba(0, 0, 0, 0.4),
+            2px 2px 8px rgba(0, 0, 0, 0.3),
             0 0 10px var(--shadow-dark);
     pointer-events: none;
 }
