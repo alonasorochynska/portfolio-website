@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import render
+from django.utils.timezone import now
 from django.views.generic import ListView
 
 from portfolio_app.models import Education, Experience, Skills, Projects, Languages
@@ -32,6 +33,11 @@ class ExperienceListView(ListView):
 
     def get_queryset(self):
         return Experience.objects.all().order_by("order")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["current_date"] = now()
+        return context
 
 
 class SkillsListView(ListView):
