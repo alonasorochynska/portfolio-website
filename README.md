@@ -1,7 +1,6 @@
 # Portfolio Website by alona_s
 
-Visit the live website here:
-<a href="https://alona-s.com" target="_blank">https://alona-s.com</a>.
+Visit the live website here: [https://alona-s.com](https://alona-s.com).
 
 <hr>
 
@@ -48,10 +47,10 @@ python manage.py runserver
 ```
 
 #### 6. Open the website:
-Open the website at <a href="http://127.0.0.1:8000/" target="_blank">http://127.0.0.1:8000/</a>.
+Open the website at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 #### 7. Log in with the superuser credentials and fill out your profile:
-Use following link to log in <a href="http://127.0.0.1:8000/admin/" target="_blank">http://127.0.0.1:8000/admin/</a>.
+Use following link to log in [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/).
 
 <hr>
 
@@ -87,10 +86,10 @@ python manage.py createsuperuser
 ```
 #### 5. Open the website:
 
-Open the website at <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>.
+Open the website at [http://localhost:8000/](http://localhost:8000/).
 
 #### 6. Log in with the superuser credentials and fill out your profile:
-Use following link to log in <a href="http://localhost:8000/admin/" target="_blank">http://localhost:8000/admin/</a>.
+Use following link to log in [http://localhost:8000/admin/](http://localhost:8000/admin/).
 
 
 <hr>
