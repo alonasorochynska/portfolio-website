@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const categoryColors = {
-        "data": "#3a0157",       // Data
-        "devops": "#570143",     // DevOps
-        "programming": "#011230",// Programming
-        "web": "#571301"         // Web
+        "a": "#3a0157",       // Data
+        "b": "#570143",     // DevOps
+        "c": "#011230",// Programming
+        "d": "#571301"         // Web
     };
 
     const skillsData = [
