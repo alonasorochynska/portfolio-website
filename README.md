@@ -102,7 +102,7 @@ Use following link to log in [http://localhost:8000/admin/](http://localhost:800
 
 #### 2. **Skills**:
 - `NAME`: Skill names will be displayed.
-- `DESCRIPTION`: Used for sorting skills by colors. Supported values: "a", "b", "c", "d". Skills without a description 
+- `DESCRIPTION`: Used for sorting skills by colors. Supported values: `a`, `b`, `c`, `d`. Skills without a description 
 will have the same color.
 - `ORDER`: Determines the size of the bubble. Example values:
   - 5 (small bubble)
