@@ -1,5 +1,10 @@
 # Portfolio Website by alona_s
 
+Visit the live website here:
+<a href="https://alona-s.com" target="_blank">https://alona-s.com</a>.
+
+<hr>
+
 This project represents my portfolio website as a Python Developer. It is a personal platform to showcase my skills, 
 professional experience, and projects in a structured and interactive manner. The website includes dynamic sections 
 such as education, skills, work experience, and projects, all of which are manageable through an admin panel. 
@@ -43,10 +48,10 @@ python manage.py runserver
 ```
 
 #### 6. Open the website:
-Open the website at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+Open the website at <a href="http://127.0.0.1:8000/" target="_blank">http://127.0.0.1:8000/</a>.
 
 #### 7. Log in with the superuser credentials and fill out your profile:
-Use following link to log in [http://localhost:8000/admin/](http://localhost:8000/admin/).
+Use following link to log in <a href="http://127.0.0.1:8000/admin/" target="_blank">http://127.0.0.1:8000/admin/</a>.
 
 <hr>
 
@@ -82,10 +87,10 @@ python manage.py createsuperuser
 ```
 #### 5. Open the website:
 
-Open the website at [http://localhost:8000/](http://localhost:8000/).
+Open the website at <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>.
 
 #### 6. Log in with the superuser credentials and fill out your profile:
-Use following link to log in [http://localhost:8000/admin/](http://localhost:8000/admin/)
+Use following link to log in <a href="http://localhost:8000/admin/" target="_blank">http://localhost:8000/admin/</a>.
 
 
 <hr>
@@ -104,8 +109,8 @@ will have the same color.
   - 5 (small bubble)
   - 50 (large bubble)
   
-After creating a skill, you can change its `ORDER` in the list of skills. Don't forget to click "Save" after making
-changes.
+After creating skills, you can change size of each bubble by changing numbers of `ORDER` in the list of skills. 
+<i>Don't forget to click "Save" after making changes.</i>
 
 #### 3. **Education**:
 
