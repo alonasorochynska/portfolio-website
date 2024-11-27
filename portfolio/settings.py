@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "portfolio_app",
     "adminsortable2",
+    "analytics",
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'portfolio_app.middleware.Force404Middleware'
+    'portfolio_app.middleware.Force404Middleware',
+    "analytics.middleware.AnalyticsMiddleware",
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -85,9 +87,19 @@ DATABASES = {
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('PORT'),
-    }
+        'PORT': os.getenv('POSTGRES_PORT'),
+    },
+    'analytics': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('ANALYTICS_DB'),
+        'USER': os.getenv('ANALYTICS_USER'),
+        'PASSWORD': os.getenv('ANALYTICS_PASSWORD'),
+        'HOST': os.getenv('ANALYTICS_HOST', os.getenv('POSTGRES_HOST')),
+        'PORT': os.getenv('ANALYTICS_PORT', os.getenv('POSTGRES_PORT')),
+    },
 }
+
+DATABASE_ROUTERS = ["analytics.routers.AnalyticsRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -128,6 +140,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+GEOIP_DATABASE_PATH = BASE_DIR / "analytics" / "city_data" / "GeoLite2-City.mmdb"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

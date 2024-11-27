@@ -1,5 +1,7 @@
 .idea/
-db.sqlite3
 venv/
-.env
 __pycache__/
+analytics/city_data/GeoLite2-City.mmdb
+db.sqlite3
+analytics.sqlite3
+.env
