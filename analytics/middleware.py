@@ -9,17 +9,14 @@ class AnalyticsMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
-        # Игнорируем запросы к статическим файлам и админке
         if request.path.startswith("/static/") or request.path.startswith("/admin/"):
             return response
 
-        # Получение данных о пользователе
         session_key = request.session.session_key or "anonymous"
         path = request.path
         ip_address = self.get_client_ip(request)
         user_agent = request.META.get("HTTP_USER_AGENT", "unknown")
 
-        # Запись информации в базу данных
         PageVisit.objects.using("analytics").create(
             session_key=session_key,
             path=path,
