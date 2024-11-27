@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = "Your app waits for the database to be available"
 
     def handle(self, *args, **kwargs):
-        self.stdout.write("Waiting for database...")
+        self.stdout.write("Waiting for portfolio database...")
         db_conn = None
         while not db_conn:
             try:

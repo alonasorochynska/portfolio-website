@@ -94,8 +94,8 @@ DATABASES = {
         'NAME': os.getenv('ANALYTICS_DB'),
         'USER': os.getenv('ANALYTICS_USER'),
         'PASSWORD': os.getenv('ANALYTICS_PASSWORD'),
-        'HOST': os.getenv('ANALYTICS_HOST', os.getenv('POSTGRES_HOST')),
-        'PORT': os.getenv('ANALYTICS_PORT', os.getenv('POSTGRES_PORT')),
+        'HOST': os.getenv('ANALYTICS_HOST'),
+        'PORT': os.getenv('ANALYTICS_PORT'),
     },
 }
 
