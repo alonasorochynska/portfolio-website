@@ -139,7 +139,11 @@ GEOIP_DATABASE_PATH = BASE_DIR / "analytics" / "city_data" / "GeoLite2-City.mmdb
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# python manage.py makemigrations default
-# python manage.py makemigrations analytics
+# python manage.py makemigrations portfolio_app
 # python manage.py migrate --database=default
+
+# python manage.py makemigrations analytics
 # python manage.py migrate --database=analytics
+
+# python manage.py createsuperuser
+# python manage.py runserver
