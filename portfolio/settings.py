@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "portfolio_app",
     "adminsortable2",
+    "analytics"
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'portfolio_app.middleware.Force404Middleware'
+    'portfolio_app.middleware.Force404Middleware',
+    "analytics.middleware.AnalyticsMiddleware",
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -128,6 +130,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+GEOIP_DATABASE_PATH = BASE_DIR / "analytics" / "city_data" / "GeoLite2-City.mmdb"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
