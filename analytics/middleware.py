@@ -17,7 +17,7 @@ class AnalyticsMiddleware:
         ip_address = self.get_client_ip(request)
         user_agent = request.META.get("HTTP_USER_AGENT", "unknown")
 
-        PageVisit.objects.using("analytics").create(
+        PageVisit.objects.using("default").create(
             session_key=session_key,
             path=path,
             ip_address=ip_address,

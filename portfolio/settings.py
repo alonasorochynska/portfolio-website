@@ -82,13 +82,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
-    "analytics": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "analytics.sqlite3",
-    },
 }
-
-DATABASE_ROUTERS = ["analytics.routers.AnalyticsRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -138,12 +132,3 @@ GEOIP_DATABASE_PATH = BASE_DIR / "analytics" / "city_data" / "GeoLite2-City.mmdb
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# python manage.py makemigrations portfolio_app
-# python manage.py migrate --database=default
-
-# python manage.py makemigrations analytics
-# python manage.py migrate --database=analytics
-
-# python manage.py createsuperuser
-# python manage.py runserver
