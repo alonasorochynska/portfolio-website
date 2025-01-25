@@ -15,6 +15,7 @@ services:
             python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - db
+    restart: always
 
   db:
     image: postgres:16.0-alpine3.17
