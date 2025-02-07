@@ -21,7 +21,9 @@ class Education(models.Model):
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_educations")
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_educations"
+    )
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -35,7 +37,9 @@ class Experience(models.Model):
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_experiences")
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_experiences"
+    )
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -46,7 +50,11 @@ class Skills(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_skills", null=True, blank=True
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="user_skills",
+        null=True,
+        blank=True
     )
     order = models.PositiveIntegerField(default=0)
 
@@ -58,7 +66,9 @@ class Projects(models.Model):
     type = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_projects")
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_projects"
+    )
     date = models.DateField(null=True, blank=True)
     github = models.URLField(null=True, blank=True)
     use = models.URLField(null=True, blank=True)
@@ -71,7 +81,9 @@ class Projects(models.Model):
 class SocialMedia(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_social_media")
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_social_media"
+    )
     media = models.URLField(null=True, blank=True)
     order = models.PositiveIntegerField(default=0)
 
@@ -83,7 +95,9 @@ class Languages(models.Model):
     name = models.CharField(max_length=55)
     level = models.CharField(max_length=55, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_languages")
+    owner = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_languages"
+    )
     order = models.PositiveIntegerField(default=0)
 
     class Meta:

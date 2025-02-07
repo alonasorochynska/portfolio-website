@@ -2,22 +2,41 @@ from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from portfolio_app.models import User, Education, Experience, Skills, Projects, SocialMedia, Languages
+from portfolio_app.models import (
+    User,
+    Education,
+    Experience,
+    Skills,
+    Projects,
+    SocialMedia,
+    Languages
+)
 
 
 @admin.register(User)
 class MyUserAdmin(UserAdmin):
-    list_display = ("username", "first_name", "last_name", "birth_date", "about")
+    list_display = (
+        "username", "first_name", "last_name", "birth_date", "about"
+    )
     search_fields = ("first_name", "last_name", "about", "information")
     fieldsets = (
         (None, {"fields": ("username", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "birth_date", "about")}),
+        ("Personal info", {"fields": (
+            "first_name", "last_name", "birth_date", "about"
+        )}),
     )
 
 
 @admin.register(Education)
 class EducationAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ("institution", "field_of_study", "degree", "start_date", "end_date", "order")
+    list_display = (
+        "institution",
+        "field_of_study",
+        "degree",
+        "start_date",
+        "end_date",
+        "order"
+    )
     list_editable = ("order",)
 
 

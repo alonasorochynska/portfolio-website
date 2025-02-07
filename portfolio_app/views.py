@@ -3,7 +3,13 @@ from django.shortcuts import render
 from django.utils.timezone import now
 from django.views.generic import ListView
 
-from portfolio_app.models import Education, Experience, Skills, Projects, Languages
+from portfolio_app.models import (
+    Education,
+    Experience,
+    Skills,
+    Projects,
+    Languages
+)
 
 
 def index(request):
