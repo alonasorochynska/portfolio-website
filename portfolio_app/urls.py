@@ -7,7 +7,8 @@ from portfolio_app.views import (
     ExperienceListView,
     SkillsListView,
     ProjectsListView,
-    LanguagesListView
+    LanguagesListView,
+    private_view
 )
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path("skills/", SkillsListView.as_view(), name="skills"),
     path("projects/", ProjectsListView.as_view(), name="projects"),
     path("languages/", LanguagesListView.as_view(), name="languages"),
+    path("private/", private_view, name="private"),
 ]
 
 handler404 = custom_404_view

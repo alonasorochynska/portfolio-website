@@ -27,6 +27,10 @@ def custom_404_view(request, exception=None):
     return render(request, "404.html", status=404)
 
 
+def private_view(request):
+    return render(request, "private.html")
+
+
 class EducationListView(ListView):
     model = Education
     template_name = "education.html"

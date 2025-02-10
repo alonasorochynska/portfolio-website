@@ -136,7 +136,7 @@ After creating skills, you can change size of each bubble by changing numbers of
 
 ## Customization
 
-- Place your avatar image (1x1 JPEG) in `static/Assets/me.jpeg`.
+- Place your avatar image (1x1 JPEG) in `static/Assets/me.jpg`.
 - Update your LinkedIn and GitHub links in `templates/includes/footer.html`.
 
 <hr>
