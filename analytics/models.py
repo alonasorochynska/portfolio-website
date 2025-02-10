@@ -37,5 +37,5 @@ class PageVisit(models.Model):
                 self.city = None
             except Exception as e:
                 print(f"Can not detect location: {e}")
-            self.ip_address = None
+        self.ip_address = None
         super().save(*args, **kwargs)
