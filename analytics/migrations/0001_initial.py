@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('session_key', models.CharField(max_length=40)),
                 ('path', models.CharField(max_length=255)),
-                ('ip_address', models.CharField(max_length=40)),
+                ('ip_address', models.CharField(blank=True, max_length=40, null=True)),
                 ('country', models.CharField(blank=True, max_length=100, null=True)),
                 ('city', models.CharField(blank=True, max_length=100, null=True)),
                 ('user_agent', models.TextField()),

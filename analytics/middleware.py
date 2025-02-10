@@ -9,7 +9,8 @@ class AnalyticsMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
-        if request.path.startswith("/static/") or request.path.startswith("/admin/"):
+        if (request.path.startswith("/static/")
+                or request.path.startswith("/admin/")):
             return response
 
         session_key = request.session.session_key or "anonymous"
@@ -18,7 +19,7 @@ class AnalyticsMiddleware:
         user_agent = request.META.get("HTTP_USER_AGENT", "unknown")
 
         PageVisit.objects.using("default").create(
-            session_key=session_key,
+            session_key=session_key[:10],
             path=path,
             ip_address=ip_address,
             user_agent=user_agent,
@@ -29,7 +30,7 @@ class AnalyticsMiddleware:
 
     @staticmethod
     def get_client_ip(request):
-        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        x_forwarded_for = request.META.get("HTTP_X_REAL_IP")
         if x_forwarded_for:
             ip = x_forwarded_for.split(",")[0]
         else:
