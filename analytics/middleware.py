@@ -34,6 +34,6 @@ class AnalyticsMiddleware:
             ip_address=ip_address,
             user_agent=user_agent,
             created_at=now(),
-            )
+        )
 
         return response
