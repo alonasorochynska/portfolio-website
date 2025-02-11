@@ -1,8 +1,11 @@
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView
 
+from analytics.models import PageVisit
 from portfolio_app.models import (
     Education,
     Experience,
@@ -10,6 +13,7 @@ from portfolio_app.models import (
     Projects,
     Languages
 )
+from portfolio_app.utils import get_client_ip
 
 
 def index(request):
@@ -29,6 +33,44 @@ def custom_404_view(request, exception=None):
 
 def private_view(request):
     return render(request, "private.html")
+
+
+@csrf_exempt
+def accept_cookies(request):
+    if request.method == "POST":
+        session_key = request.session.session_key or "anonymous"
+        ip_address = get_client_ip(request)
+        user_agent = request.META.get("HTTP_USER_AGENT", "unknown")
+
+        last_visit = PageVisit.objects.filter(
+            session_key=session_key[:10],
+            ip_address=None,
+            user_agent=user_agent
+        ).order_by('-created_at').first()
+
+        if last_visit:
+            last_visit.ip_address = ip_address
+            last_visit.save()
+            updated = 1
+        else:
+            updated = 0
+
+        response = JsonResponse({
+            "message": "Cookies accepted",
+            "ip_address": ip_address,
+            "updated_rows": updated
+        })
+        response.set_cookie(
+            "cookiesAccepted",
+            "true",
+            max_age=31536000,
+            path="/",
+            secure=True,
+            samesite="Lax"
+        )
+        return response
+
+    return JsonResponse({"error": "Invalid request"}, status=400)
 
 
 class EducationListView(ListView):

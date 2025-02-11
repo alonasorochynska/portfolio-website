@@ -8,11 +8,13 @@ from portfolio_app.views import (
     SkillsListView,
     ProjectsListView,
     LanguagesListView,
-    private_view
+    private_view,
+    accept_cookies,
 )
 
 urlpatterns = [
     path("", index, name="index"),
+    path('accept-cookies/', accept_cookies, name='accept-cookies'),
     path("educations/", EducationListView.as_view(), name="education"),
     path("experiences/", ExperienceListView.as_view(), name="experience"),
     path("skills/", SkillsListView.as_view(), name="skills"),

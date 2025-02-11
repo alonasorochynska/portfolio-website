@@ -1,5 +1,9 @@
+from datetime import timedelta
+
 from .models import PageVisit
 from django.utils.timezone import now
+
+from portfolio_app.utils import get_client_ip
 
 
 class AnalyticsMiddleware:
@@ -10,29 +14,26 @@ class AnalyticsMiddleware:
         response = self.get_response(request)
 
         if (request.path.startswith("/static/")
-                or request.path.startswith("/admin/")):
+                or request.path.startswith("/admin/")
+                or request.path.startswith("/accept-cookies/")):
             return response
 
         session_key = request.session.session_key or "anonymous"
-        path = request.path
-        ip_address = self.get_client_ip(request)
+        path = request.path.rstrip("/") + "/"
         user_agent = request.META.get("HTTP_USER_AGENT", "unknown")
 
-        PageVisit.objects.using("default").create(
+        cookies_accepted = request.COOKIES.get("cookiesAccepted") == "true"
+        ip_address = None
+
+        if cookies_accepted:
+            ip_address = get_client_ip(request)
+
+        PageVisit.objects.create(
             session_key=session_key[:10],
             path=path,
             ip_address=ip_address,
             user_agent=user_agent,
             created_at=now(),
-        )
+            )
 
         return response
-
-    @staticmethod
-    def get_client_ip(request):
-        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(",")[0].strip()
-        else:
-            ip = request.META.get("REMOTE_ADDR")
-        return ip

@@ -12,6 +12,7 @@ class PageVisit(models.Model):
     city = models.CharField(max_length=100, blank=True, null=True)
     user_agent = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    cookies_accepted = models.BooleanField(default=False)
 
     class Meta:
         app_label = "analytics"
