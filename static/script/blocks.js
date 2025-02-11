@@ -1,15 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const blocks = document.querySelectorAll(".main-container");
-    const container = document.querySelector(".container-around");
-
     const colors = ["#571301", "#3a0157", "#011230", "#570143"];
-
-    const initialOrder = Array.from(blocks);
-    let currentOrder = Array.from(initialOrder);
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.innerHTML = `<div class="popup-body"></div>`;
+    document.body.appendChild(popup);
+    const popupBody = popup.querySelector(".popup-body");
 
     blocks.forEach((block, index) => {
         block.style.backgroundColor = colors[index % colors.length];
-
         block.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.5)";
         block.style.transition = "box-shadow 0.3s ease";
 
@@ -17,42 +16,37 @@ document.addEventListener("DOMContentLoaded", function () {
             block.classList.add("appear");
         }, index * 200);
 
-        const closeBtn = block.querySelector(".close-btn");
-
         block.addEventListener("click", function () {
-            if (this.classList.contains("selected")) {
-                return;
-            }
-            blocks.forEach(b => {
-                b.classList.remove("selected");
-                const btn = b.querySelector(".close-btn");
-                btn.style.display = "none";
-            });
-
-            currentOrder = currentOrder.filter(b => b !== this);
-
-            container.prepend(this);
-
             requestAnimationFrame(() => {
-                this.classList.add("selected");
-                closeBtn.style.display = "block";
+                const clonedContent = this.cloneNode(true);
+                const bgColor = window.getComputedStyle(this).backgroundColor;
 
-                currentOrder.forEach(b => {
-                    container.append(b);
+                clonedContent.querySelectorAll(".education-description").forEach(el => {
+                    el.style.display = "block";
                 });
 
-                currentOrder = Array.from(initialOrder);
+                clonedContent.setAttribute("style", "transform: none !important;");
+                clonedContent.style.backgroundColor = bgColor;
+                clonedContent.style.cursor = "default";
+
+                const closeBtn = clonedContent.querySelector(".close-btn");
+                if (closeBtn) {
+                    closeBtn.style.display = "block";
+                    closeBtn.addEventListener("click", function () {
+                        popup.style.display = "none";
+                    });
+                }
+
+                popupBody.innerHTML = "";
+                popupBody.appendChild(clonedContent);
+                popup.style.display = "flex";
             });
         });
+    });
 
-        closeBtn.addEventListener("click", function (e) {
-            e.stopPropagation();
-            block.classList.remove("selected");
-            closeBtn.style.display = "none";
-
-            initialOrder.forEach(b => {
-                container.append(b);
-            });
-        });
+    window.addEventListener("click", function (e) {
+        if (e.target === popup) {
+            popup.style.display = "none";
+        }
     });
 });

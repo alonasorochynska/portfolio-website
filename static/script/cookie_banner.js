@@ -19,5 +19,10 @@ function acceptCookies() {
     fetch('/accept-cookies/', {
         method: 'POST',
         credentials: 'include'
-    });
+    }).then(response => {
+        if (!response.ok) {
+            console.error("Error sending request:", response.status);
+        }
+    }).catch(error => console.error("Network error:", error));
+
 }
